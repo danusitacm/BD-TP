@@ -54,11 +54,11 @@ CREATE SEQUENCE public.user_1_user_id_seq;
 CREATE TABLE public.user_1 (
                 user_id BIGINT NOT NULL DEFAULT nextval('public.user_1_user_id_seq'),
                 banned BOOLEAN DEFAULT FALSE NOT NULL,
-                star_date DATE NOT NULL,
+                start_date DATE NOT NULL,
                 username VARCHAR(100) NOT NULL,
                 password VARCHAR(100) NOT NULL,
                 email VARCHAR(100) NOT NULL,
-                wallet_id BIGINT NOT NULL,
+                balance_id BIGINT NOT NULL,
                 CONSTRAINT user_id PRIMARY KEY (user_id)
 );
 
@@ -237,7 +237,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE public.user_1 ADD CONSTRAINT wallet_user_fk
-FOREIGN KEY (wallet_id)
+FOREIGN KEY (balance_id)
 REFERENCES public.balance (balance_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION

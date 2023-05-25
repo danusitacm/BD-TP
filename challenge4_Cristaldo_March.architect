@@ -103,7 +103,7 @@
     <column id="COL26" populated="true" UUID="50fec9b0-de6d-4a02-b714-30b590abd2af" autoIncrement="false" autoIncrementSequenceName="user_1_banned_seq" defaultValue="FALSE" name="Usuario baneado" nullable="0" physicalName="banned" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="16" userDefinedTypeUUID="a26374aa-3026-4bb8-b564-eb2e186dfa5d" >
      <remarks></remarks>
     </column>
-    <column id="COL27" populated="true" UUID="8340bff6-af26-48c4-8d95-affdfe1bf7bf" autoIncrement="false" autoIncrementSequenceName="user_1_star_date_seq" defaultValue="" name="Fecha de creacion de usuario" nullable="0" physicalName="star_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL27" populated="true" UUID="8340bff6-af26-48c4-8d95-affdfe1bf7bf" autoIncrement="false" autoIncrementSequenceName="user_1_start_date_seq" defaultValue="" name="Fecha de creacion de usuario" nullable="0" physicalName="start_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     <column id="COL28" populated="true" UUID="df1011b1-b361-4781-8eea-1a0ad368ff43" autoIncrement="false" autoIncrementSequenceName="user_1_username_seq" defaultValue="" name="Nombre de usuario" nullable="0" physicalName="username" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -115,7 +115,7 @@
     <column id="COL30" populated="true" UUID="4a6c063f-2337-4a1c-99e2-7c1f5f509357" autoIncrement="false" autoIncrementSequenceName="user_1_email_seq" defaultValue="" name="Email del usuario" nullable="0" physicalName="email" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL31" populated="true" UUID="4e579fe5-0c39-4b72-950a-616ba37ce9cf" autoIncrement="false" autoIncrementSequenceName="user_1_wallet_id_seq" defaultValue="" name="Codigo de balance" nullable="0" physicalName="wallet_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL31" populated="true" UUID="4e579fe5-0c39-4b72-950a-616ba37ce9cf" autoIncrement="false" autoIncrementSequenceName="user_1_balance_id_seq" defaultValue="" name="Codigo de balance" nullable="0" physicalName="balance_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -231,7 +231,7 @@
     <folder id="FOLTAB572" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB574" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX61" populated="true" UUID="cfe87012-fa10-40b5-a421-47fa4b49f32f" clustered="false" name="balance_id" physicalName="wallet_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX61" populated="true" UUID="cfe87012-fa10-40b5-a421-47fa4b49f32f" clustered="false" name="balance_id" physicalName="balance_id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC62" populated="true" UUID="f445d3ae-2cf4-4dcb-952b-f341d3258adc" ascendingOrDescending="UNSPECIFIED" column-ref="COL58" name="Codigo de balance" physicalName="balance_id" />
     </index>
    </folder>
@@ -577,38 +577,38 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="1026" viewportY="348" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="594" viewportY="348" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="2110" y="1133" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB7" x="1923" y="1470" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="617" y="1499" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB24" x="1530" y="857" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB24" x="1471" y="860" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB34" x="498" y="1197" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB43" x="453" y="985" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB43" x="547" y="988" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB49" x="1111" y="1648" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB57" x="1687" y="526" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB63" x="1478" y="1536" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB70" x="1490" y="1289" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB80" x="2172" y="872" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB70" x="1468" y="1272" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB80" x="2009" y="718" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB90" x="890" y="1272" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB98" x="1280" y="476" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB105" x="958" y="1012" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB113" x="673" y="1849" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB119" x="604" y="1693" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB125" x="869" y="694" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB132" x="1824" y="1249" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB132" x="1995" y="1336" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL142" pkConnection="0.30128205128205127" fkConnection="0.66875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL172" pkConnection="0.5353535353535354" fkConnection="0.8761061946902655" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL140" pkConnection="0.5353535353535354" fkConnection="0.43529411764705883" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL144" pkConnection="0.3805309734513274" fkConnection="0.6" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL170" pkConnection="0.45188284518828453" fkConnection="0.5570469798657718" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL146" pkConnection="0.22123893805309736" fkConnection="0.6220472440944882" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL152" pkConnection="0.4331983805668016" fkConnection="0.5580524344569289" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL152" pkConnection="0.5092936802973977" fkConnection="0.4867924528301887" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL154" pkConnection="0.6535433070866141" fkConnection="0.2992125984251969" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL156" pkConnection="0.8110236220472441" fkConnection="0.14173228346456693" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL148" pkConnection="0.5954692556634305" fkConnection="0.33201581027667987" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL158" pkConnection="0.5991902834008097" fkConnection="0.41596638655462187" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL174" pkConnection="0.45121951219512196" fkConnection="0.5968379446640316" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL160" pkConnection="0.3675889328063241" fkConnection="0.7084745762711865" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL158" pkConnection="0.6929133858267716" fkConnection="0.2828282828282828" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL174" pkConnection="0.40234375" fkConnection="0.6617100371747212" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL160" pkConnection="0.10037174721189591" fkConnection="0.7591240875912408" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL162" pkConnection="0.3543307086614173" fkConnection="0.6868686868686869" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL168" pkConnection="0.584070796460177" fkConnection="0.41414141414141414" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL150" pkConnection="0.3942307692307692" fkConnection="0.5892857142857143" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
@@ -617,7 +617,7 @@
   <table-link relationship-ref="REL164" pkConnection="0.2755905511811024" fkConnection="0.8591549295774648" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL138" pkConnection="0.25448028673835127" fkConnection="0.6967509025270758" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL180" pkConnection="0.40562248995983935" fkConnection="0.635036496350365" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL166" pkConnection="0.9169960474308301" fkConnection="0.31225296442687744" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL166" pkConnection="0.5748031496062992" fkConnection="0.2982456140350877" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
