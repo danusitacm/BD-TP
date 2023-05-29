@@ -7,7 +7,7 @@ try:
                                   database="steam2")
     cursor = connection.cursor()
     postgres_insert_query = """ INSERT INTO event (name, description ,star_date,end_date) VALUES (%s,%s,%s,%s)"""
-    record_to_insert = ('Primavera','Llego la primavera tenemos descuentos desde 50% ','2023-5-28','2023-5-29')
+    record_to_insert = ('Primavera','Llego la primavera tenemos descuentos desde 50% ','2023-5-31','2023-6-1')
     cursor.execute(postgres_insert_query, record_to_insert)
     connection.commit()
     count = cursor.rowcount

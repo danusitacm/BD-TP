@@ -11,18 +11,6 @@ CREATE TABLE public.genre (
 
 ALTER SEQUENCE public.genre_genre_id_seq OWNED BY public.genre.genre_id;
 
-CREATE SEQUENCE public.balance_balance_id_seq;
-
-CREATE TABLE public.balance (
-                balance_id BIGINT NOT NULL DEFAULT nextval('public.balance_balance_id_seq'),
-                amount REAL DEFAULT 0 NOT NULL,
-                payment_type VARCHAR(200) NOT NULL,
-                CONSTRAINT balance_id PRIMARY KEY (balance_id)
-);
-
-
-ALTER SEQUENCE public.balance_balance_id_seq OWNED BY public.balance.balance_id;
-
 CREATE SEQUENCE public.developer_developer_id_seq_1;
 
 CREATE TABLE public.developer (
@@ -58,12 +46,26 @@ CREATE TABLE public.user_1 (
                 username VARCHAR(100) NOT NULL,
                 password VARCHAR(100) NOT NULL,
                 email VARCHAR(100) NOT NULL,
-                balance_id BIGINT NOT NULL,
                 CONSTRAINT user_id PRIMARY KEY (user_id)
 );
 
 
 ALTER SEQUENCE public.user_1_user_id_seq OWNED BY public.user_1.user_id;
+
+CREATE SEQUENCE public.balance_balance_id_seq;
+
+CREATE TABLE public.Balance (
+                balance_id BIGINT NOT NULL DEFAULT nextval('public.balance_balance_id_seq'),
+                amount REAL DEFAULT 0 NOT NULL,
+                description VARCHAR(300) NOT NULL,
+                transaction_date DATE NOT NULL,
+                payment_type VARCHAR(200) NOT NULL,
+                user_balance_id BIGINT NOT NULL,
+                CONSTRAINT balance_id PRIMARY KEY (balance_id)
+);
+
+
+ALTER SEQUENCE public.balance_balance_id_seq OWNED BY public.Balance.balance_id;
 
 CREATE SEQUENCE public.user_review_user_review_id_seq;
 
@@ -148,45 +150,34 @@ CREATE TABLE public.item (
 
 ALTER SEQUENCE public.item_item_id_seq OWNED BY public.item.item_id;
 
-CREATE SEQUENCE public.user_got_item_user_got_item_id_seq_1;
-
-CREATE TABLE public.user_got_item (
-                user_got_item_id BIGINT NOT NULL DEFAULT nextval('public.user_got_item_user_got_item_id_seq_1'),
-                drop_date DATE NOT NULL,
-                user_id BIGINT NOT NULL,
-                item_id BIGINT NOT NULL,
-                status VARCHAR(100) NOT NULL,
-                CONSTRAINT user_got_item_id PRIMARY KEY (user_got_item_id)
-);
-
-
-ALTER SEQUENCE public.user_got_item_user_got_item_id_seq_1 OWNED BY public.user_got_item.user_got_item_id;
-
 CREATE SEQUENCE public.market_market_id_seq;
 
 CREATE TABLE public.market (
                 market_id VARCHAR NOT NULL DEFAULT nextval('public.market_market_id_seq'),
-                user_id BIGINT NOT NULL,
-                user_got_item_id BIGINT NOT NULL,
+                user_seller_id BIGINT NOT NULL,
+                item_id BIGINT NOT NULL,
+                purchase_date DATE NOT NULL,
                 price REAL NOT NULL,
+                user_buyer_id BIGINT NOT NULL,
                 CONSTRAINT market_id PRIMARY KEY (market_id)
 );
 
 
 ALTER SEQUENCE public.market_market_id_seq OWNED BY public.market.market_id;
 
-CREATE SEQUENCE public.user_buy_item_user_buy_item_id_seq;
+CREATE SEQUENCE public.user_got_item_user_got_item_id_seq_1;
 
-CREATE TABLE public.user_buy_item (
-                user_buy_item_id BIGINT NOT NULL DEFAULT nextval('public.user_buy_item_user_buy_item_id_seq'),
-                purchase_date DATE NOT NULL,
-                user_buyer_id BIGINT NOT NULL,
-                market_id VARCHAR NOT NULL,
-                CONSTRAINT user_buy_item_id PRIMARY KEY (user_buy_item_id)
+CREATE TABLE public.user_got_item (
+                user_got_item_id BIGINT NOT NULL DEFAULT nextval('public.user_got_item_user_got_item_id_seq_1'),
+                drop_date DATE NOT NULL,
+                user_id BIGINT NOT NULL,
+                item_acquired_id BIGINT NOT NULL,
+                status VARCHAR(100) NOT NULL,
+                CONSTRAINT user_got_item_id PRIMARY KEY (user_got_item_id)
 );
 
 
-ALTER SEQUENCE public.user_buy_item_user_buy_item_id_seq OWNED BY public.user_buy_item.user_buy_item_id;
+ALTER SEQUENCE public.user_got_item_user_got_item_id_seq_1 OWNED BY public.user_got_item.user_got_item_id;
 
 CREATE SEQUENCE public.event_event_id_seq;
 
@@ -222,23 +213,30 @@ CREATE TABLE public.community (
 
 ALTER SEQUENCE public.community_community_id_seq OWNED BY public.community.community_id;
 
+CREATE SEQUENCE public.gift_gift_id_seq;
+
+CREATE TABLE public.Regalo (
+                Codigo_de_regalo BIGINT NOT NULL DEFAULT nextval('public.gift_gift_id_seq'),
+                shipping_date DATE NOT NULL,
+                user_id BIGINT NOT NULL,
+                game_gift_id BIGINT NOT NULL,
+                community_gift_id BIGINT NOT NULL,
+                CONSTRAINT gift_id PRIMARY KEY (Codigo_de_regalo)
+);
+
+
+ALTER SEQUENCE public.gift_gift_id_seq OWNED BY public.Regalo.Codigo_de_regalo;
+
 CREATE TABLE public.comunnity_user (
                 community_id BIGINT NOT NULL,
-                user_id BIGINT NOT NULL,
-                CONSTRAINT comunnity_user_id PRIMARY KEY (community_id, user_id)
+                user_community_id BIGINT NOT NULL,
+                CONSTRAINT comunnity_user_id PRIMARY KEY (community_id, user_community_id)
 );
 
 
 ALTER TABLE public.genre_game ADD CONSTRAINT genre_genre_game_fk
 FOREIGN KEY (genre_id)
 REFERENCES public.genre (genre_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE public.user_1 ADD CONSTRAINT wallet_user_fk
-FOREIGN KEY (balance_id)
-REFERENCES public.balance (balance_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
@@ -285,13 +283,6 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.user_buy_item ADD CONSTRAINT user_user_buy_item_fk1
-FOREIGN KEY (user_buyer_id)
-REFERENCES public.user_1 (user_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
 ALTER TABLE public.user_got_item ADD CONSTRAINT user_user_got_item_fk
 FOREIGN KEY (user_id)
 REFERENCES public.user_1 (user_id)
@@ -300,13 +291,34 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE public.market ADD CONSTRAINT user_market_fk
-FOREIGN KEY (user_id)
+FOREIGN KEY (user_seller_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE public.comunnity_user ADD CONSTRAINT user_1_comunnity_user_fk
+FOREIGN KEY (user_community_id)
+REFERENCES public.user_1 (user_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.market ADD CONSTRAINT user_1_market_fk
+FOREIGN KEY (user_buyer_id)
+REFERENCES public.user_1 (user_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.Balance ADD CONSTRAINT user_1_balance_fk
+FOREIGN KEY (user_balance_id)
+REFERENCES public.user_1 (user_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.Regalo ADD CONSTRAINT user_1_gift_fk
 FOREIGN KEY (user_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
@@ -348,23 +360,23 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
+ALTER TABLE public.Regalo ADD CONSTRAINT game_gift_fk
+FOREIGN KEY (game_gift_id)
+REFERENCES public.game (game_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
 ALTER TABLE public.user_got_item ADD CONSTRAINT item_user_got_item_fk
-FOREIGN KEY (item_id)
+FOREIGN KEY (item_acquired_id)
 REFERENCES public.item (item_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.market ADD CONSTRAINT user_got_item_market_fk
-FOREIGN KEY (user_got_item_id)
-REFERENCES public.user_got_item (user_got_item_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE public.user_buy_item ADD CONSTRAINT market_user_buy_item_fk
-FOREIGN KEY (market_id)
-REFERENCES public.market (market_id)
+ALTER TABLE public.market ADD CONSTRAINT item_market_fk
+FOREIGN KEY (item_id)
+REFERENCES public.item (item_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
@@ -378,6 +390,13 @@ NOT DEFERRABLE;
 
 ALTER TABLE public.comunnity_user ADD CONSTRAINT community_comunnity_user_fk
 FOREIGN KEY (community_id)
+REFERENCES public.community (community_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.Regalo ADD CONSTRAINT community_gift_fk
+FOREIGN KEY (community_gift_id)
 REFERENCES public.community (community_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
