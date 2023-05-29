@@ -60,7 +60,7 @@ CREATE TABLE public.Balance (
                 description VARCHAR(300) NOT NULL,
                 transaction_date DATE NOT NULL,
                 payment_type VARCHAR(200) NOT NULL,
-                use_balance_id BIGINT NOT NULL,
+                user_balance_id BIGINT NOT NULL,
                 CONSTRAINT balance_id PRIMARY KEY (balance_id)
 );
 
@@ -312,7 +312,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE public.Balance ADD CONSTRAINT user_1_balance_fk
-FOREIGN KEY (use_balance_id)
+FOREIGN KEY (user_balance_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
