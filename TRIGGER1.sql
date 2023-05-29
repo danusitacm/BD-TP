@@ -1,10 +1,16 @@
 CREATE FUNCTION antisolapamiento_de_eventos() RETURNS trigger AS 
 $$
 	BEGIN
-		IF (select end_date from event where NEW.star_date <= end_date order by end_date desc LIMIT 1) is not null THEN 
-			RAISE EXCEPTION 'Ya existe un evento, no autorizo';
-		END IF; 
-		RETURN NEW;
+		IF EXISTS (
+		SELECT 1
+		FROM event
+		WHERE NEW.start_date <= end_date
+		ORDER BY end_date DESC
+		LIMIT 1
+	) THEN 
+		RAISE EXCEPTION 'No se puede insertar o actualizar el evento debido a que ya existe un evento en esas fechas';
+	END IF; 
+	RETURN NEW;
 	END;
 $$
 LANGUAGE plpgsql;
