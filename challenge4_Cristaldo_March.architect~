@@ -345,7 +345,7 @@
     <column id="COL94" populated="true" UUID="e55b7777-ecf1-4ec1-aaaa-18e0cba085af" autoIncrement="false" autoIncrementSequenceName="user_user_id_seq_3" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL95" populated="true" UUID="622cc84b-6c88-453d-b389-4a5362c097f4" autoIncrement="false" autoIncrementSequenceName="item_item_id_seq_1" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL95" populated="true" UUID="622cc84b-6c88-453d-b389-4a5362c097f4" autoIncrement="false" autoIncrementSequenceName="item_item_acquired_id_seq_1" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_acquired_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL96" populated="true" UUID="fe69b4f9-605d-4f90-aeed-5f6508b2b5b0" autoIncrement="false" autoIncrementSequenceName="user_got_item_status_seq" defaultValue="" name="Estado del item" nullable="0" physicalName="status" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -415,7 +415,7 @@
     <column id="COL113" populated="true" UUID="83c34d81-9252-48b0-a7c2-75036c96c37e" autoIncrement="false" autoIncrementSequenceName="market_user_seller_id_seq" defaultValue="" name="Codigo del usuario vendedor" nullable="0" physicalName="user_seller_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL114" populated="true" UUID="b9a94b88-5afd-4341-a5a6-00089cb36c0c" autoIncrement="false" autoIncrementSequenceName="item_item_id_seq" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL114" populated="true" UUID="b9a94b88-5afd-4341-a5a6-00089cb36c0c" autoIncrement="false" autoIncrementSequenceName="item_item_id_seq_1" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL115" populated="true" UUID="10c0c9eb-c3dc-425c-a7de-44b16a83a3f4" autoIncrement="false" autoIncrementSequenceName="user_buy_item_purchase_date_seq" defaultValue="" name="Fecha de la compra" nullable="0" physicalName="purchase_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
@@ -444,7 +444,7 @@
     <column id="COL121" populated="true" UUID="eb6fc853-031a-4d79-bbe7-da39d1764bf9" autoIncrement="false" autoIncrementSequenceName="community_community_id_seq_1" defaultValue="" name="Codigo de la comunidad" nullable="0" physicalName="community_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL122" populated="true" UUID="a0c1295c-9ff6-4100-ba6b-2fb875028d25" autoIncrement="false" autoIncrementSequenceName="user_1_user_id_seq_1" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL122" populated="true" UUID="a0c1295c-9ff6-4100-ba6b-2fb875028d25" autoIncrement="false" autoIncrementSequenceName="user_1_user_community_id_seq_1" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_community_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -455,7 +455,7 @@
     <folder id="FOLTAB1204" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX123" populated="true" UUID="0c27d126-db96-4441-9f89-f2c3c79544b8" clustered="false" name="comunnity_user_id" physicalName="comunnity_user_id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC124" populated="true" UUID="4cc7707f-c1ec-4e57-9795-7c8fc40ce915" ascendingOrDescending="UNSPECIFIED" column-ref="COL121" name="Codigo de la comunidad" physicalName="community_id" />
-     <index-column id="IDC125" populated="true" UUID="5fa4f91b-300b-4f08-a61e-2728da1c556b" ascendingOrDescending="UNSPECIFIED" column-ref="COL122" name="Codigo de usuario" physicalName="user_id" />
+     <index-column id="IDC125" populated="true" UUID="5fa4f91b-300b-4f08-a61e-2728da1c556b" ascendingOrDescending="UNSPECIFIED" column-ref="COL122" name="Codigo de usuario" physicalName="user_community_id" />
     </index>
    </folder>
   </table>
@@ -477,7 +477,7 @@
     <column id="COL131" populated="true" UUID="be71027b-c387-48f8-ae52-971462566524" autoIncrement="false" autoIncrementSequenceName="balance_payment_type_seq" defaultValue="" name="Metodo de pago" nullable="0" physicalName="payment_type" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL132" populated="true" UUID="778e7c83-1fd5-490e-ab55-de29f8282215" autoIncrement="false" autoIncrementSequenceName="user_1_user_id_seq" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL132" populated="true" UUID="778e7c83-1fd5-490e-ab55-de29f8282215" autoIncrement="false" autoIncrementSequenceName="user_1_user_balance_id_seq_1" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_balance_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -494,19 +494,19 @@
   <table id="TAB135" populated="true" UUID="381f9e60-b05a-4d70-9ffc-3b49a93c8ae8" name="Regalo" objectType="TABLE" physicalName="Regalo" >
    <remarks></remarks>
    <folder id="FOLTAB1351" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL136" populated="true" UUID="4ba885fb-2a5b-4dd7-aed5-b6f09dd5c577" autoIncrement="true" autoIncrementSequenceName="gift_gift_id_seq" defaultValue="" name="Codigo de regalo" nullable="0" physicalName="Codigo de regalo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL136" populated="true" UUID="4ba885fb-2a5b-4dd7-aed5-b6f09dd5c577" autoIncrement="true" autoIncrementSequenceName="gift_gift_id_seq" defaultValue="" name="Codigo de regalo" nullable="0" physicalName="Codigo_de_regalo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL137" populated="true" UUID="f399bf65-847a-483d-b657-227295d3db75" autoIncrement="false" autoIncrementSequenceName="gift_shipping_date_seq" defaultValue="" name="Fecha de envio del regalo" nullable="0" physicalName="shipping_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL138" populated="true" UUID="5c27c371-addc-48d0-976b-45270b5099f9" autoIncrement="false" autoIncrementSequenceName="user_1_user_id_seq" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL138" populated="true" UUID="5c27c371-addc-48d0-976b-45270b5099f9" autoIncrement="false" autoIncrementSequenceName="user_1_user_id_seq_2" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL139" populated="true" UUID="c9392214-dc5c-4824-924a-3dca9d3c00cd" autoIncrement="false" autoIncrementSequenceName="game_game_id_seq" defaultValue="" name="Codigo del juego" nullable="0" physicalName="game_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL139" populated="true" UUID="c9392214-dc5c-4824-924a-3dca9d3c00cd" autoIncrement="false" autoIncrementSequenceName="game_game_gift_id_seq_1" defaultValue="" name="Codigo del juego" nullable="0" physicalName="game_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL140" populated="true" UUID="6b05195d-4df8-4a5c-ac76-4f888fa863d1" autoIncrement="false" autoIncrementSequenceName="community_community_id_seq" defaultValue="" name="Codigo de la comunidad" nullable="0" physicalName="community_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL140" populated="true" UUID="6b05195d-4df8-4a5c-ac76-4f888fa863d1" autoIncrement="false" autoIncrementSequenceName="community_community_gift_id_seq_1" defaultValue="" name="Codigo de la comunidad" nullable="0" physicalName="community_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -516,7 +516,7 @@
     </folder>
     <folder id="FOLTAB1354" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX141" populated="true" UUID="145b2a0e-f26c-4869-ad69-15bee8daf8b7" clustered="false" name="gift_id" physicalName="gift_id" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC142" populated="true" UUID="ff41bf42-30b8-437b-b602-1867be864f71" ascendingOrDescending="UNSPECIFIED" column-ref="COL136" name="Codigo de regalo" physicalName="Codigo de regalo" />
+     <index-column id="IDC142" populated="true" UUID="ff41bf42-30b8-437b-b602-1867be864f71" ascendingOrDescending="UNSPECIFIED" column-ref="COL136" name="Codigo de regalo" physicalName="Codigo_de_regalo" />
     </index>
    </folder>
   </table>
@@ -595,16 +595,16 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="0" viewportY="686" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="962" viewportY="338" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="2110" y="1133" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB7" x="1923" y="1470" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB7" x="2035" y="1561" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="617" y="1499" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB24" x="1471" y="860" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB33" x="273" y="1159" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB42" x="505" y="946" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB42" x="299" y="696" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB48" x="1111" y="1648" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB56" x="1478" y="1536" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB63" x="1468" y="1272" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -612,9 +612,9 @@
   <table-pane table-ref="TAB83" x="1025" y="1163" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB91" x="958" y="1012" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB99" x="673" y="1849" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB105" x="706" y="1670" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB111" x="932" y="555" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB120" x="1995" y="1336" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB105" x="679" y="1710" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB111" x="1004" y="574" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB120" x="1874" y="1264" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB126" x="1735" y="478" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB135" x="1658" y="1680" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL149" pkConnection="0.30128205128205127" fkConnection="0.66875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
