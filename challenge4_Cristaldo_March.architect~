@@ -462,22 +462,22 @@
   <table id="TAB126" populated="true" UUID="a766a35f-238c-45eb-84b0-8e45f717ceda" name="Balance" objectType="TABLE" physicalName="Balance" >
    <remarks></remarks>
    <folder id="FOLTAB1261" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL127" populated="true" UUID="5f5743be-b414-4a8e-9af6-85438c2c7cf5" autoIncrement="true" autoIncrementSequenceName="balance_balance_id_seq" defaultValue="" name="Codigo de balance" nullable="0" physicalName="balance_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL127" populated="true" UUID="5f5743be-b414-4a8e-9af6-85438c2c7cf5" autoIncrement="true" autoIncrementSequenceName="Balance_balance_id_seq" defaultValue="" name="Codigo de balance" nullable="0" physicalName="balance_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL128" populated="true" UUID="55e9a270-5c85-4609-8a13-bb5403da4682" autoIncrement="false" autoIncrementSequenceName="balance_amount_seq" defaultValue="0" name="Monto" nullable="0" physicalName="amount" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="6" userDefinedTypeUUID="7e55bcd0-7606-4153-b749-9c397f12c4d8" >
+    <column id="COL128" populated="true" UUID="55e9a270-5c85-4609-8a13-bb5403da4682" autoIncrement="false" autoIncrementSequenceName="Balance_amount_seq" defaultValue="0" name="Monto" nullable="0" physicalName="amount" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="6" userDefinedTypeUUID="7e55bcd0-7606-4153-b749-9c397f12c4d8" >
      <remarks></remarks>
     </column>
-    <column id="COL129" populated="true" UUID="4493fa26-d939-487b-a25e-992049f7f055" autoIncrement="false" autoIncrementSequenceName="balance_description_seq" defaultValue="" name="Descripcion" nullable="0" physicalName="description" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL129" populated="true" UUID="4493fa26-d939-487b-a25e-992049f7f055" autoIncrement="false" autoIncrementSequenceName="Balance_description_seq" defaultValue="" name="Descripcion" nullable="0" physicalName="description" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL130" populated="true" UUID="24d34625-7388-4232-96e3-ba866bf07323" autoIncrement="false" autoIncrementSequenceName="balance_transaction_date_seq" defaultValue="" name="Fecha de la transaccion" nullable="0" physicalName="transaction_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL130" populated="true" UUID="24d34625-7388-4232-96e3-ba866bf07323" autoIncrement="false" autoIncrementSequenceName="Balance_transaction_date_seq" defaultValue="" name="Fecha de la transaccion" nullable="0" physicalName="transaction_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL131" populated="true" UUID="be71027b-c387-48f8-ae52-971462566524" autoIncrement="false" autoIncrementSequenceName="balance_payment_type_seq" defaultValue="" name="Metodo de pago" nullable="0" physicalName="payment_type" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL131" populated="true" UUID="be71027b-c387-48f8-ae52-971462566524" autoIncrement="false" autoIncrementSequenceName="Balance_payment_type_seq" defaultValue="" name="Metodo de pago" nullable="0" physicalName="payment_type" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL132" populated="true" UUID="778e7c83-1fd5-490e-ab55-de29f8282215" autoIncrement="false" autoIncrementSequenceName="user_1_user_balance_id_seq_1" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_balance_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL132" populated="true" UUID="778e7c83-1fd5-490e-ab55-de29f8282215" autoIncrement="false" autoIncrementSequenceName="Balance_user_balance_id_seq" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_balance_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -598,7 +598,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="245" viewportY="400" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="735" viewportY="400" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="2110" y="1133" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB7" x="2035" y="1561" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="617" y="1499" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

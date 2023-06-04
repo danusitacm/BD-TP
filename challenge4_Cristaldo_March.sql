@@ -135,49 +135,49 @@ CREATE TABLE public.game_review (
 
 ALTER SEQUENCE public.game_review_game_review_id_seq OWNED BY public.game_review.game_review_id;
 
+CREATE SEQUENCE public.product_product_id_seq;
+
+CREATE TABLE public.product (
+                product_id BIGINT NOT NULL DEFAULT nextval('public.product_product_id_seq'),
+                product_name VARCHAR(100) NOT NULL,
+                producto_price REAL NOT NULL,
+                product_description VARCHAR(300),
+                game_id BIGINT NOT NULL,
+                rarity_id BIGINT NOT NULL,
+                CONSTRAINT product_id PRIMARY KEY (product_id)
+);
+
+
+ALTER SEQUENCE public.product_product_id_seq OWNED BY public.product.product_id;
+
 CREATE SEQUENCE public.item_item_id_seq;
 
 CREATE TABLE public.item (
                 item_id BIGINT NOT NULL DEFAULT nextval('public.item_item_id_seq'),
-                name VARCHAR(100) NOT NULL,
-                price REAL NOT NULL,
-                description VARCHAR(300),
-                game_id BIGINT NOT NULL,
-                rarity_id BIGINT NOT NULL,
+                drop_date DATE NOT NULL,
+                user_id BIGINT NOT NULL,
+                product_acquired_id BIGINT NOT NULL,
+                item_status VARCHAR(100) NOT NULL,
                 CONSTRAINT item_id PRIMARY KEY (item_id)
 );
 
 
 ALTER SEQUENCE public.item_item_id_seq OWNED BY public.item.item_id;
 
-CREATE SEQUENCE public.market_market_id_seq;
+CREATE SEQUENCE public.item_transacction_item_transaction_id_seq;
 
-CREATE TABLE public.market (
-                market_id VARCHAR NOT NULL DEFAULT nextval('public.market_market_id_seq'),
+CREATE TABLE public.item_transacction (
+                item_transaction_id VARCHAR NOT NULL DEFAULT nextval('public.item_transacction_item_transaction_id_seq'),
                 user_seller_id BIGINT NOT NULL,
-                item_id BIGINT NOT NULL,
                 purchase_date DATE NOT NULL,
                 price REAL NOT NULL,
                 user_buyer_id BIGINT NOT NULL,
-                CONSTRAINT market_id PRIMARY KEY (market_id)
+                item_sell_id BIGINT NOT NULL,
+                CONSTRAINT item_transaction_id PRIMARY KEY (item_transaction_id)
 );
 
 
-ALTER SEQUENCE public.market_market_id_seq OWNED BY public.market.market_id;
-
-CREATE SEQUENCE public.user_got_item_user_got_item_id_seq_1;
-
-CREATE TABLE public.user_got_item (
-                user_got_item_id BIGINT NOT NULL DEFAULT nextval('public.user_got_item_user_got_item_id_seq_1'),
-                drop_date DATE NOT NULL,
-                user_id BIGINT NOT NULL,
-                item_acquired_id BIGINT NOT NULL,
-                status VARCHAR(100) NOT NULL,
-                CONSTRAINT user_got_item_id PRIMARY KEY (user_got_item_id)
-);
-
-
-ALTER SEQUENCE public.user_got_item_user_got_item_id_seq_1 OWNED BY public.user_got_item.user_got_item_id;
+ALTER SEQUENCE public.item_transacction_item_transaction_id_seq OWNED BY public.item_transacction.item_transaction_id;
 
 CREATE SEQUENCE public.event_event_id_seq;
 
@@ -248,7 +248,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.item ADD CONSTRAINT rarity_item_fk
+ALTER TABLE public.product ADD CONSTRAINT rarity_item_fk
 FOREIGN KEY (rarity_id)
 REFERENCES public.rarity (rarity_id)
 ON DELETE NO ACTION
@@ -283,14 +283,14 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.user_got_item ADD CONSTRAINT user_user_got_item_fk
+ALTER TABLE public.item ADD CONSTRAINT user_user_got_item_fk
 FOREIGN KEY (user_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.market ADD CONSTRAINT user_market_fk
+ALTER TABLE public.item_transacction ADD CONSTRAINT user_market_fk
 FOREIGN KEY (user_seller_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
@@ -304,7 +304,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.market ADD CONSTRAINT user_1_market_fk
+ALTER TABLE public.item_transacction ADD CONSTRAINT user_1_market_fk
 FOREIGN KEY (user_buyer_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
@@ -325,7 +325,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.item ADD CONSTRAINT game_item_fk
+ALTER TABLE public.product ADD CONSTRAINT game_item_fk
 FOREIGN KEY (game_id)
 REFERENCES public.game (game_id)
 ON DELETE NO ACTION
@@ -367,15 +367,15 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.user_got_item ADD CONSTRAINT item_user_got_item_fk
-FOREIGN KEY (item_acquired_id)
-REFERENCES public.item (item_id)
+ALTER TABLE public.item ADD CONSTRAINT item_user_got_item_fk
+FOREIGN KEY (product_acquired_id)
+REFERENCES public.product (product_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.market ADD CONSTRAINT item_market_fk
-FOREIGN KEY (item_id)
+ALTER TABLE public.item_transacction ADD CONSTRAINT item_item_transacction_fk
+FOREIGN KEY (item_sell_id)
 REFERENCES public.item (item_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
