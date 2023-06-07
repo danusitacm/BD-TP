@@ -19,7 +19,7 @@ CREATE TABLE public.developer (
                 name VARCHAR(100) NOT NULL,
                 password VARCHAR(100) NOT NULL,
                 email VARCHAR(100) NOT NULL,
-                star_date DATE NOT NULL,
+                start_date DATE NOT NULL,
                 CONSTRAINT developer_id PRIMARY KEY (developer_id)
 );
 
@@ -189,7 +189,7 @@ CREATE TABLE public.event (
                 event_id BIGINT NOT NULL DEFAULT nextval('public.event_event_id_seq'),
                 name VARCHAR(100) NOT NULL,
                 description VARCHAR(300),
-                star_date DATE NOT NULL,
+                start_date DATE NOT NULL,
                 end_date DATE NOT NULL,
                 CONSTRAINT event_id PRIMARY KEY (event_id)
 );
@@ -219,8 +219,8 @@ ALTER SEQUENCE public.community_community_id_seq OWNED BY public.community.commu
 
 CREATE SEQUENCE public.gift_gift_id_seq START WITH 1;
 SELECT setval('public.gift_gift_id_seq', 1, false);
-CREATE TABLE public.Regalo (
-                Codigo_de_regalo BIGINT NOT NULL DEFAULT nextval('public.gift_gift_id_seq'),
+CREATE TABLE public.gift (
+                gift_id BIGINT NOT NULL DEFAULT nextval('public.gift_gift_id_seq'),
                 shipping_date DATE NOT NULL,
                 user_id BIGINT NOT NULL,
                 game_gift_id BIGINT NOT NULL,

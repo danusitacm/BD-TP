@@ -18,7 +18,7 @@ CREATE TABLE public.developer (
                 name VARCHAR(100) NOT NULL,
                 password VARCHAR(100) NOT NULL,
                 email VARCHAR(100) NOT NULL,
-                star_date DATE NOT NULL,
+                start_date DATE NOT NULL,
                 CONSTRAINT developer_id PRIMARY KEY (developer_id)
 );
 
@@ -185,7 +185,7 @@ CREATE TABLE public.event (
                 event_id BIGINT NOT NULL DEFAULT nextval('public.event_event_id_seq'),
                 name VARCHAR(100) NOT NULL,
                 description VARCHAR(300),
-                star_date DATE NOT NULL,
+                start_date DATE NOT NULL,
                 end_date DATE NOT NULL,
                 CONSTRAINT event_id PRIMARY KEY (event_id)
 );
@@ -215,17 +215,17 @@ ALTER SEQUENCE public.community_community_id_seq OWNED BY public.community.commu
 
 CREATE SEQUENCE public.gift_gift_id_seq;
 
-CREATE TABLE public.Regalo (
-                Codigo_de_regalo BIGINT NOT NULL DEFAULT nextval('public.gift_gift_id_seq'),
+CREATE TABLE public.gift (
+                gift_id BIGINT NOT NULL DEFAULT nextval('public.gift_gift_id_seq'),
                 shipping_date DATE NOT NULL,
                 user_id BIGINT NOT NULL,
                 game_gift_id BIGINT NOT NULL,
                 community_gift_id BIGINT NOT NULL,
-                CONSTRAINT gift_id PRIMARY KEY (Codigo_de_regalo)
+                CONSTRAINT gift_id PRIMARY KEY (gift_id)
 );
 
 
-ALTER SEQUENCE public.gift_gift_id_seq OWNED BY public.Regalo.Codigo_de_regalo;
+ALTER SEQUENCE public.gift_gift_id_seq OWNED BY public.gift.gift_id;
 
 CREATE TABLE public.comunnity_user (
                 community_id BIGINT NOT NULL,
@@ -318,7 +318,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT user_1_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT user_1_gift_fk
 FOREIGN KEY (user_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
@@ -360,7 +360,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT game_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT game_gift_fk
 FOREIGN KEY (game_gift_id)
 REFERENCES public.game (game_id)
 ON DELETE NO ACTION
@@ -395,7 +395,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT community_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT community_gift_fk
 FOREIGN KEY (community_gift_id)
 REFERENCES public.community (community_id)
 ON DELETE NO ACTION

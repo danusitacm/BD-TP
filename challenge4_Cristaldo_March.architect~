@@ -153,7 +153,7 @@
     <folder id="FOLTAB332" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB334" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX40" populated="true" UUID="ad4e9a4d-b8ee-464a-8403-f9c96ab3cc11" clustered="false" name="product_id" physicalName="item_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX40" populated="true" UUID="ad4e9a4d-b8ee-464a-8403-f9c96ab3cc11" clustered="false" name="product_id" physicalName="product_id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC41" populated="true" UUID="4d2124ea-ebaa-4f7d-97e7-f07b230709f1" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="Codigo producto" physicalName="product_id" />
     </index>
    </folder>
@@ -357,7 +357,7 @@
     <folder id="FOLTAB912" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB914" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX97" populated="true" UUID="8b738e48-2ccd-4903-b985-3e9d5505b35b" clustered="false" name="item_id" physicalName="user_got_item_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX97" populated="true" UUID="8b738e48-2ccd-4903-b985-3e9d5505b35b" clustered="false" name="item_id" physicalName="item_id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC98" populated="true" UUID="1dc7f704-26b2-49f1-a1e7-b00d9fc016f0" ascendingOrDescending="UNSPECIFIED" column-ref="COL92" name="Codigo del item" physicalName="item_id" />
     </index>
    </folder>
@@ -424,7 +424,7 @@
     <column id="COL116" populated="true" UUID="af24b61d-d03e-4525-b9a8-51de228b0ac4" autoIncrement="false" autoIncrementSequenceName="item_transacction_user_buyer_id_seq" defaultValue="" name="Codigo del usuario comprador" nullable="0" physicalName="user_buyer_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL117" populated="true" UUID="540528de-9168-477b-8246-d505c439c55f" autoIncrement="false" autoIncrementSequenceName="item_item_id_seq" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL117" populated="true" UUID="540528de-9168-477b-8246-d505c439c55f" autoIncrement="false" autoIncrementSequenceName="item_item_sell_id_seq" defaultValue="" name="Codigo del item" nullable="0" physicalName="item_sell_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -433,7 +433,7 @@
     <folder id="FOLTAB1112" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1114" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX118" populated="true" UUID="83b3e415-afa9-40a3-9caf-c520b4d86746" clustered="false" name="item_transaction_id" physicalName="market_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX118" populated="true" UUID="83b3e415-afa9-40a3-9caf-c520b4d86746" clustered="false" name="item_transaction_id" physicalName="item_transaction_id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC119" populated="true" UUID="b10daab5-4643-4c49-8657-7e8c7ba18447" ascendingOrDescending="UNSPECIFIED" column-ref="COL112" name="Codigo de la transaccion" physicalName="item_transaction_id" />
     </index>
    </folder>
@@ -595,10 +595,10 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="735" viewportY="400" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="184" viewportY="1034" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="2110" y="1133" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB7" x="2035" y="1561" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="617" y="1499" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

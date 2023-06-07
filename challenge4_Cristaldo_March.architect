@@ -45,7 +45,7 @@
     <column id="COL10" populated="true" UUID="738d3200-50db-4063-9838-b4df31610411" autoIncrement="false" autoIncrementSequenceName="event_description_seq" defaultValue="" name="Descripcion del evento" nullable="1" physicalName="description" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL11" populated="true" UUID="f9f51fe9-01c8-484b-a989-768484452ff0" autoIncrement="false" autoIncrementSequenceName="event_star_date_seq" defaultValue="" name="Fecha que inicia el evento" nullable="0" physicalName="star_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL11" populated="true" UUID="f9f51fe9-01c8-484b-a989-768484452ff0" autoIncrement="false" autoIncrementSequenceName="event_start_date_seq" defaultValue="" name="Fecha que inicia el evento" nullable="0" physicalName="start_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     <column id="COL12" populated="true" UUID="55165170-06ff-46e9-8016-9a86150132dc" autoIncrement="false" autoIncrementSequenceName="event_end_date_seq" defaultValue="" name="Fecha que finaliza un evento" nullable="0" physicalName="end_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
@@ -196,7 +196,7 @@
     <column id="COL52" populated="true" UUID="55cdc137-957d-496e-bbb3-1932aa915bb0" autoIncrement="false" autoIncrementSequenceName="developer_email_seq" defaultValue="" name="Email de la empresa desarrolladora" nullable="0" physicalName="email" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL53" populated="true" UUID="57df04da-6345-4e41-bb1b-989a5e263e69" autoIncrement="false" autoIncrementSequenceName="developer_star_date_seq" defaultValue="" name="Fecha de creacion de la cuenta del desarrollador" nullable="0" physicalName="star_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL53" populated="true" UUID="57df04da-6345-4e41-bb1b-989a5e263e69" autoIncrement="false" autoIncrementSequenceName="developer_start_date_seq" defaultValue="" name="Fecha de creacion de la cuenta del desarrollador" nullable="0" physicalName="start_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     </folder>
@@ -491,22 +491,22 @@
     </index>
    </folder>
   </table>
-  <table id="TAB135" populated="true" UUID="381f9e60-b05a-4d70-9ffc-3b49a93c8ae8" name="Regalo" objectType="TABLE" physicalName="Regalo" >
+  <table id="TAB135" populated="true" UUID="381f9e60-b05a-4d70-9ffc-3b49a93c8ae8" name="Regalo" objectType="TABLE" physicalName="gift" >
    <remarks></remarks>
    <folder id="FOLTAB1351" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL136" populated="true" UUID="4ba885fb-2a5b-4dd7-aed5-b6f09dd5c577" autoIncrement="true" autoIncrementSequenceName="gift_gift_id_seq" defaultValue="" name="Codigo de regalo" nullable="0" physicalName="Codigo_de_regalo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL136" populated="true" UUID="4ba885fb-2a5b-4dd7-aed5-b6f09dd5c577" autoIncrement="true" autoIncrementSequenceName="gift_gift_id_seq" defaultValue="" name="Codigo de regalo" nullable="0" physicalName="gift_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL137" populated="true" UUID="f399bf65-847a-483d-b657-227295d3db75" autoIncrement="false" autoIncrementSequenceName="gift_shipping_date_seq" defaultValue="" name="Fecha de envio del regalo" nullable="0" physicalName="shipping_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL138" populated="true" UUID="5c27c371-addc-48d0-976b-45270b5099f9" autoIncrement="false" autoIncrementSequenceName="user_1_user_id_seq_2" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL138" populated="true" UUID="5c27c371-addc-48d0-976b-45270b5099f9" autoIncrement="false" autoIncrementSequenceName="gift_user_id_seq" defaultValue="" name="Codigo de usuario" nullable="0" physicalName="user_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL139" populated="true" UUID="c9392214-dc5c-4824-924a-3dca9d3c00cd" autoIncrement="false" autoIncrementSequenceName="game_game_gift_id_seq_1" defaultValue="" name="Codigo del juego" nullable="0" physicalName="game_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL139" populated="true" UUID="c9392214-dc5c-4824-924a-3dca9d3c00cd" autoIncrement="false" autoIncrementSequenceName="gift_game_gift_id_seq" defaultValue="" name="Codigo del juego" nullable="0" physicalName="game_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL140" populated="true" UUID="6b05195d-4df8-4a5c-ac76-4f888fa863d1" autoIncrement="false" autoIncrementSequenceName="community_community_gift_id_seq_1" defaultValue="" name="Codigo de la comunidad" nullable="0" physicalName="community_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL140" populated="true" UUID="6b05195d-4df8-4a5c-ac76-4f888fa863d1" autoIncrement="false" autoIncrementSequenceName="gift_community_gift_id_seq" defaultValue="" name="Codigo de la comunidad" nullable="0" physicalName="community_gift_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
@@ -516,7 +516,7 @@
     </folder>
     <folder id="FOLTAB1354" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX141" populated="true" UUID="145b2a0e-f26c-4869-ad69-15bee8daf8b7" clustered="false" name="gift_id" physicalName="gift_id" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC142" populated="true" UUID="ff41bf42-30b8-437b-b602-1867be864f71" ascendingOrDescending="UNSPECIFIED" column-ref="COL136" name="Codigo de regalo" physicalName="Codigo_de_regalo" />
+     <index-column id="IDC142" populated="true" UUID="ff41bf42-30b8-437b-b602-1867be864f71" ascendingOrDescending="UNSPECIFIED" column-ref="COL136" name="Codigo de regalo" physicalName="gift_id" />
     </index>
    </folder>
   </table>
@@ -598,25 +598,25 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="184" viewportY="1034" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="239" viewportY="1034" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="2110" y="1133" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB7" x="2035" y="1561" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB7" x="2072" y="1543" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="617" y="1499" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB24" x="1471" y="860" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB33" x="273" y="1159" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB42" x="299" y="696" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB48" x="1111" y="1648" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB48" x="1133" y="1751" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB56" x="1478" y="1536" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB63" x="1468" y="1272" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB73" x="2009" y="718" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB73" x="1937" y="642" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB83" x="1025" y="1163" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB91" x="958" y="1012" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB91" x="910" y="954" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB99" x="673" y="1849" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB105" x="679" y="1710" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB105" x="442" y="1704" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB111" x="1004" y="574" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB120" x="1874" y="1264" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB126" x="1735" y="478" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB135" x="1658" y="1680" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB135" x="1781" y="1694" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL149" pkConnection="0.30128205128205127" fkConnection="0.66875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL185" pkConnection="0.5353535353535354" fkConnection="0.8761061946902655" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL147" pkConnection="0.5353535353535354" fkConnection="0.43529411764705883" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
