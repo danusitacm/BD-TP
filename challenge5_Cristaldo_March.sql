@@ -57,7 +57,7 @@ ALTER SEQUENCE public.user_1_user_id_seq OWNED BY public.user_1.user_id;
 
 CREATE SEQUENCE public.balance_balance_id_seq START WITH 1;
 SELECT setval('public.balance_balance_id_seq', 1, false);
-CREATE TABLE public.Balance (
+CREATE TABLE public.balance (
                 balance_id BIGINT NOT NULL DEFAULT nextval('public.balance_balance_id_seq'),
                 amount REAL DEFAULT 0 NOT NULL,
                 description VARCHAR(300) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE public.Balance (
 );
 
 
-ALTER SEQUENCE public.balance_balance_id_seq OWNED BY public.Balance.balance_id;
+ALTER SEQUENCE public.balance_balance_id_seq OWNED BY public.balance.balance_id;
 
 CREATE SEQUENCE public.user_review_user_review_id_seq START WITH 1;
 SELECT setval('public.user_review_user_review_id_seq', 1, false);
@@ -225,11 +225,11 @@ CREATE TABLE public.gift (
                 user_id BIGINT NOT NULL,
                 game_gift_id BIGINT NOT NULL,
                 community_gift_id BIGINT NOT NULL,
-                CONSTRAINT gift_id PRIMARY KEY (Codigo_de_regalo)
+                CONSTRAINT gift_id PRIMARY KEY (gift_id)
 );
 
 
-ALTER SEQUENCE public.gift_gift_id_seq OWNED BY public.Regalo.Codigo_de_regalo;
+ALTER SEQUENCE public.gift_gift_id_seq OWNED BY public.gift.gift_id;
 
 CREATE TABLE public.comunnity_user (
                 community_id BIGINT NOT NULL,
@@ -315,14 +315,14 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Balance ADD CONSTRAINT user_1_balance_fk
+ALTER TABLE public.balance ADD CONSTRAINT user_1_balance_fk
 FOREIGN KEY (user_balance_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT user_1_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT user_1_gift_fk
 FOREIGN KEY (user_id)
 REFERENCES public.user_1 (user_id)
 ON DELETE NO ACTION
@@ -364,7 +364,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT game_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT game_gift_fk
 FOREIGN KEY (game_gift_id)
 REFERENCES public.game (game_id)
 ON DELETE NO ACTION
@@ -399,7 +399,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.Regalo ADD CONSTRAINT community_gift_fk
+ALTER TABLE public.gift ADD CONSTRAINT community_gift_fk
 FOREIGN KEY (community_gift_id)
 REFERENCES public.community (community_id)
 ON DELETE NO ACTION
