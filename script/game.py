@@ -15,3 +15,15 @@ def insert_into_game(db_manager):
         developer_id=random.randint(start_range, end_range)
         values.append((description,name,release_date,base_price,developer_id))   
     db_manager.execute_query(query, values)
+    
+def insert_into_user_buy_game(db_manager):
+    values=[]
+    start_range=1
+    end_range=10
+    query="INSERT INTO user_buy_game (total_price,purchase_date,game_id,user_id) VALUES (%s,%s,%s,%s)"
+    total_price=random.uniform(start_range,end_range)  #este tenemos que cambiar#
+    purchase_date=fake.date_this_year()
+    game_id=random.randint(start_range, end_range)
+    user_id=random.randint(start_range, end_range)
+    values.append((total_price,purchase_date,game_id,user_id))   
+    db_manager.execute_query(query, values)
