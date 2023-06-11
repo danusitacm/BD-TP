@@ -1,5 +1,5 @@
 from faker import Faker
-n=10
+n=100000
 fake = Faker()
 def insert_into_user(db_manager):
     values=[]

@@ -5,37 +5,39 @@ fecha_compra date,
 nombre_del_evento varchar,
 regalo boolean,
 destinatario_regalo varchar,
-review varchar) language plpgsql 
+review int) language plpgsql 
 as $$
-declare 
-nombre_usuario varchar;
-var_r record;
-begin
-    select username from user_1 into nombre_usuario where user_id=userId;
-    raise notice 'Nombre de usuario: %', nombre_usuario;
-    for var_r in(
-		select distinct on ( u.user_id, g.name, ubg.purchase_date) u.user_id, g.name, ubg.purchase_date, 
-		case when ubg.purchase_date between e.star_date and e.end_date then e.name
-			else null
-			end as name_event,
-		case when gi.game_gift_id=ubg.game_id then true 
-			else false
-			end as setgift,
-		case when gi.game_gift_id=ubg.game_id then co.name
-			else null
-			end as setgift2
-		from user_1 u
-		JOIN user_buy_game ubg on ubg.user_id=u.user_id
-		JOIN game g on g.game_id=ubg.game_id
-		JOIN game_event ge on ge.game_id=ubg.game_id
-		JOIN event e on e.event_id=ge.event_id
-		JOIN gift gi on gi.user_id=u.user_id
-		join community co on co.community_id=gi.community_gift_id
-		where u.user_id=userId)
-    loop
-        juego_comprados := (var_r.name); 
-        fecha_compra := (var_r.purchase_date);
-    return next;
-    end loop;
-end;
+DECLARE 
+    nombre_usuario varchar;
+    var_r record;
+BEGIN
+    SELECT username INTO nombre_usuario FROM user_1 WHERE user_id = userId;
+    RAISE NOTICE 'Nombre de usuario: %', nombre_usuario;
+    FOR var_r IN (
+        SELECT DISTINCT ON (ubg.purchase_date)
+            g.name,
+            ubg.purchase_date,
+            CASE WHEN ubg.purchase_date BETWEEN e.start_date AND e.end_date THEN e.name ELSE NULL END AS name_event,
+            gi.community_gift_id,
+            rg.game_review_id
+        FROM
+            user_buy_game ubg
+            JOIN game g ON ubg.game_id = g.game_id
+            LEFT JOIN game_event ge ON ubg.game_id = ge.game_id 
+            LEFT JOIN event e ON ge.event_id= e.event_id
+            LEFT JOIN gift gi ON ubg.user_id= gi.user_id AND ubg.game_id=gi.game_gift_id
+            LEFT JOIN community co ON gi.community_gift_id = co.community_id 
+            LEFT JOIN game_review rg ON ubg.game_id = rg.game_id AND  ubg.user_id= rg.user_id 
+        WHERE
+            ubg.user_id = userId
+    ) LOOP
+        juego_comprados := var_r.name;
+        fecha_compra := var_r.purchase_date;
+        nombre_del_evento := var_r.name_event;
+        regalo := var_r.community_gift_id IS NOT NULL;
+        destinatario_regalo := CASE WHEN var_r.community_gift_id IS NOT NULL THEN var_r.name END;
+        review := var_r.game_review_id;
+        RETURN NEXT;
+    END LOOP;
+END;
 $$

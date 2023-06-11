@@ -7,6 +7,7 @@ BEGIN
     SELECT g.name
     FROM game g
     JOIN user_buy_game ubg ON g.game_id = ubg.game_id
+    JOIN game_event ge on ge.game_id=g.game_id 
     JOIN event e ON e.event_id = id
     WHERE ubg.purchase_date >= e.start_date AND ubg.purchase_date <= e.end_date;
 END;

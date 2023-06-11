@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-n=20
+n=300000
 fake = Faker()
 def insert_into_game(db_manager):
     values=[]
@@ -19,12 +19,14 @@ def insert_into_game(db_manager):
 def insert_into_user_buy_game(db_manager):
     values=[]
     query_last_user_id="select user_id from user_1 ORDER BY user_id DESC LIMIT 1"
+    last_id_user=db_manager.get_last_id_from_table(query_last_user_id)
     query_last_game_id="select game_id from game ORDER BY game_id DESC LIMIT 1"
+    last_id_game=db_manager.get_last_id_from_table(query_last_game_id)
     query="INSERT INTO user_buy_game (total_price,purchase_date,game_id,user_id) VALUES (%s,%s,%s,%s)"
     for _ in range(n):
         total_price=0  #este tenemos que cambiar#
         purchase_date=fake.date_this_year()
-        game_id=random.randint(1,db_manager.get_last_id_from_table(query_last_game_id))
-        user_id=random.randint(1,db_manager.get_last_id_from_table(query_last_user_id))
+        game_id=random.randint(1,last_id_game)
+        user_id=random.randint(1,last_id_user)
         values.append((total_price,purchase_date,game_id,user_id))   
     db_manager.execute_query(query, values)
