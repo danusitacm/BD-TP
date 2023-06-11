@@ -8,6 +8,7 @@ class DatabaseManager:
         self.port = port
         self.database = database
         self.connection = None
+        self.cursor= None
     def connect(self):
         try:
             self.connection = psycopg2.connect(
@@ -17,29 +18,45 @@ class DatabaseManager:
                 port=self.port,
                 database=self.database
             )
+            self.cursor = self.connection.cursor()
             print("Connection to PostgreSQL was successful")
         except (Exception, psycopg2.Error) as error:
             print("Error while connecting to PostgreSQL:", error)
-
     def disconnect(self):
         if self.connection:
+            self.cursor.close()
             self.connection.close()
             print("PostgreSQL connection is closed")
-
     def execute_query(self, query, params=None):
         try:
-            cursor = self.connection.cursor()
             if params:
-                cursor.executemany(query, params)
+                self.cursor.executemany(query, params)
             else:
-                cursor.executemany(query)
+                self.cursor.executemany(query)
             self.connection.commit()
-            count = cursor.rowcount
+            count = self.cursor.rowcount
             print(count, "Record(s) affected")
-            cursor.close()
         except (Exception, psycopg2.Error) as error:
             print("Failed to execute query:", error)
-            
+    
+    def get_last_id_from_table(self,query):
+        try:
+            self.cursor.execute(query)
+            self.connection.commit()
+            value=self.cursor.fetchone()[0]
+            return value
+        except (Exception, psycopg2.Error) as error:
+            print("Failed to execute query:", error)
+    
+    def get_cartesian_product(self,query):
+        try:
+            self.cursor.execute(query)
+            self.connection.commit()
+            value=self.cursor.fetchall()
+            return value
+        except (Exception, psycopg2.Error) as error:
+            print("Failed to execute query:", error)
+    
     def check_user_has_game(self, user_id, game_id):
         query = "SELECT COUNT(*) FROM user_buy_game WHERE user_id = %s AND game_id = %s"
         self.cursor.execute(query, (user_id, game_id))

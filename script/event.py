@@ -15,7 +15,7 @@ name_event=('Festival de la Construccion de Bases',
 def insert_into_event(db_manager):
     start_date=date(2023, 1, 1)
     values=[]
-    query="INSERT INTO event (name,description,start_date,end_date) VALUES (%s,%s,%s,%s)"
+    query="insert into event (name,description,start_date,end_date) values (%s,%s,%s,%s)"
     for _ in range(n):
         name=random.choice(name_event)
         description=fake.text(max_nb_chars=300)

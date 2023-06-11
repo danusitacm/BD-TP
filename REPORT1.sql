@@ -6,7 +6,7 @@ create or replace function getGamesFromEvent(id bigint)
 		gameID bigint;
 		var record;
 begin
-	select star_date into startDate from event where event_id=id;
+	select start_date into startDate from event where event_id=id;
 	select end_date into endDate from event where event_id=id;
 	for var in (
 		select g.name,ubg.game_id from game g JOIN user_buy_game ubg ON g.game_id=ubg.game_id
