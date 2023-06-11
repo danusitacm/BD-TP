@@ -5,7 +5,6 @@ fake = Faker()
 def insert_into_game(db_manager):
     values=[]
     query="select developer_id from developer ORDER BY developer_id DESC LIMIT 1"
-    print(start_range)
     end_range=db_manager.get_last_id_from_table(query)
     query="INSERT INTO game (description,name,release_date,base_price,developer_id) VALUES (%s,%s,%s,%s,%s)"
     for _ in range(n):
