@@ -7,8 +7,7 @@ BEGIN
     SELECT g.name
     FROM game g
     JOIN user_buy_game ubg ON g.game_id = ubg.game_id
-    WHERE ubg.purchase_date BETWEEN (SELECT start_date FROM event WHERE event_id = id)
-    AND (SELECT end_date FROM event WHERE event_id = id);
-    RETURN;
+    JOIN event e ON e.event_id = id
+    WHERE ubg.purchase_date >= e.start_date AND ubg.purchase_date <= e.end_date;
 END;
 $$;
