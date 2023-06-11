@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION getGamesFromEvent(id bigint)
-   RETURNS TABLE (nameGame varchar)
+   RETURNS TABLE (nombre_del_juego varchar)
    LANGUAGE plpgsql
 AS $$
 BEGIN
