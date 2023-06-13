@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-n=20
+n=200000
 fake = Faker()
 def insert_into_gift(db_manager):
     values=[]

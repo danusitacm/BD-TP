@@ -14,7 +14,7 @@ BEGIN
     SELECT username INTO nombre_usuario FROM user_1 WHERE user_id = userId;
     RAISE NOTICE 'Nombre de usuario: %', nombre_usuario;
     FOR var_r IN (
-        SELECT DISTINCT ON (ubg.purchase_date)
+        SELECT DISTINCT on (ubg.purchase_date)
             g.name,
             ubg.purchase_date,
             CASE WHEN ubg.purchase_date BETWEEN e.start_date AND e.end_date THEN e.name ELSE NULL END AS name_event,

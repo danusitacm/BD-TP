@@ -27,7 +27,7 @@ class DatabaseManager:
             self.cursor.close()
             self.connection.close()
             print("PostgreSQL connection is closed")
-    def execute_query(self, query, params=None):
+    def executemany_query(self, query, params=None):
         try:
             if params:
                 self.cursor.executemany(query, params)
@@ -38,7 +38,18 @@ class DatabaseManager:
             print(count, "Record(s) affected")
         except (Exception, psycopg2.Error) as error:
             print("Failed to execute query:", error)
-    
+            self.connection.rollback()
+    def execute_query(self, query, params=None):
+        try:
+            if params:
+                self.cursor.execute(query, params)
+            else:
+                self.cursor.execute(query)
+            self.connection.commit()
+        except (Exception, psycopg2.Error) as error:
+            print("Failed to execute query:", error)
+            self.connection.rollback()
+            
     def get_last_id_from_table(self,query):
         try:
             self.cursor.execute(query)
@@ -48,7 +59,7 @@ class DatabaseManager:
         except (Exception, psycopg2.Error) as error:
             print("Failed to execute query:", error)
     
-    def get_cartesian_product(self,query):
+    def get_table(self,query):
         try:
             self.cursor.execute(query)
             self.connection.commit()

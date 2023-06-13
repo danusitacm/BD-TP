@@ -6,4 +6,4 @@ def insert_into_rarity(db_manager):
     values.append('ultra-raro',3)
     values.append('Epico', 4)
     values.append('legendario', 5)
-    db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)

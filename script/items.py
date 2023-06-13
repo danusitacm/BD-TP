@@ -14,8 +14,7 @@ def insert_into_products(db_manager):
         game_id=random.randint(start_range, end_range)
         rarity_id=random.randint(start_range, 5)
         values.append((product_name,product_price,product_description,game_id,rarity_id))   
-    db_manager.execute_query(query, values)
-
+    db_manager.executemany_query(query, values)
 def insert_into_items(db_manager):
     estados = ['Activo', 'Inactivo', 'Pendiente', 'Finalizado']
     indice_aleatorio = random.randint(0, len(estados) - 1)
@@ -29,4 +28,4 @@ def insert_into_items(db_manager):
         product_acquired_id= random.randint(start_range, end_range)
         item_status= estados[indice_aleatorio]
         values.append((drop_date,user_id,product_acquired_id,item_status))
-        db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)

@@ -1,22 +1,15 @@
 from faker import Faker
 import random
-n=10
+n=500000
 fake = Faker()
 def insert_into_community_user(db_manager):
-    values=[]
-    for _ in range(n):
-        values=[]
-        # Obtenemos el producto cartesiano de la tablas game event
-        query="select user_id, community_id from user_1,community"
-        cartesian_product=db_manager.get_cartesian_product(query)    
-        #Cargo en mi values los dos id
-        for i in cartesian_product:
-            values.append(i)
-        # Obtener la mitad del tamaño de la lista
-        half_size = int(len(values) / 2)
-        # Eliminar la mitad de los elementos de forma aleatoria
-        for _ in range(half_size):
-            values.pop(random.randint(0, len(values) - 1))
-        print(values)
-    query="INSERT INTO comunnity_user (community_id,user_community_id) VALUES (%s,%s)"
-    db_manager.execute_query(query, values)
+    query_last_community_id="select community_id from community ORDER BY community_id DESC LIMIT 1"
+    last_id_community=db_manager.get_last_id_from_table(query_last_community_id)
+    query_last_user_id="select user_id from user_1 ORDER BY user_id DESC LIMIT 1"
+    last_id_user=db_manager.get_last_id_from_table(query_last_user_id)
+    query="insert into comunnity_user (community_id,user_community_id) VALUES (%s,%s)"
+    for i in range(n):
+        community_id=random.randint(1,last_id_community)
+        user_community_id=random.randint(1,last_id_user)
+        value=((community_id,user_community_id))
+        db_manager.execute_query(query, value)

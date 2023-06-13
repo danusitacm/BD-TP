@@ -23,4 +23,4 @@ def insert_into_event(db_manager):
         random_end_date= random_start_date + timedelta(days=random.randint(1, 10))
         start_date = random_end_date
         values.append((name,description,random_start_date,random_end_date))  
-    db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)

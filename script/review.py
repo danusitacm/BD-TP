@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-n=30
+n=300000
 fake = Faker()
 def insert_into_review_game(db_manager):
     values=[]
@@ -12,7 +12,7 @@ def insert_into_review_game(db_manager):
     for _ in range(n):
         description=fake.text(max_nb_chars=300)
         publish_date=fake.date_this_year()
-        score=random.uniform(1,5)
+        score=round(random.uniform(1,5),1)
         title=fake.word()
         user_id=random.randint(1,last_id_user)
         game_id=random.randint(1,last_id_game)
@@ -22,4 +22,4 @@ def insert_into_review_game(db_manager):
             continue
         """
         values.append((description,publish_date,score,title,game_id,user_id))   
-    db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)

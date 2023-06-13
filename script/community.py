@@ -1,5 +1,5 @@
 from faker import Faker
-n=10
+n=500000
 fake = Faker()
 def insert_into_community(db_manager):
     values=[]
@@ -8,4 +8,4 @@ def insert_into_community(db_manager):
         name=fake.word()
         description=fake.text(max_nb_chars=300)
         values.append((name,description))   
-    db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)

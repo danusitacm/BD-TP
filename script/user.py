@@ -11,8 +11,7 @@ def insert_into_user(db_manager):
         password=fake.password()
         email=fake.email()
         values.append((banned,date,username,password,email))   
-    db_manager.execute_query(query, values)
-
+    db_manager.executemany_query(query, values)
 def insert_into_developer(db_manager):
     values=[]
     query="INSERT INTO developer (name,password,email,start_date) VALUES (%s,%s,%s,%s)"
@@ -22,4 +21,4 @@ def insert_into_developer(db_manager):
         email=fake.email()
         date=fake.date()
         values.append((name,password,email,date))   
-    db_manager.execute_query(query, values)
+    db_manager.executemany_query(query, values)
