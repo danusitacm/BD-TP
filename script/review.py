@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-n=300000
+n=200000
 fake = Faker()
 def insert_into_review_game(db_manager):
     values=[]
@@ -16,10 +16,9 @@ def insert_into_review_game(db_manager):
         title=fake.word()
         user_id=random.randint(1,last_id_user)
         game_id=random.randint(1,last_id_game)
-        #user_has_game = db_manager.check_user_has_game(user_id, game_id)
-        """ if not user_has_game:
-            print(f"El usuario {user_id} no tiene el juego con ID {game_id}. No se insertará la reseña.")
+        user_has_game = db_manager.check_user_has_game(user_id, game_id)
+        if not user_has_game:
+            print(f"{_}.El usuario {user_id} no tiene el juego con ID {game_id}. No se insertará la reseña.")
             continue
-        """
         values.append((description,publish_date,score,title,game_id,user_id))   
     db_manager.executemany_query(query, values)
