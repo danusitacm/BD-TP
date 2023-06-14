@@ -3,6 +3,7 @@ import random
 fake = Faker()
 def insert_into_game_review(db_manager):
     n = 10
+    values=[]
     try:
         for i in range(n):
             description = generate_random_description()
@@ -16,7 +17,7 @@ def insert_into_game_review(db_manager):
                 user_id=purchase_data[0][0]
                 game_id= purchase_data[0][1]
                 query = "INSERT INTO game_review (description, publish_date, score, title, game_id, user_id) VALUES (%s, %s, %s, %s, %s, %s)"
-                values = (description, publish_date, score, title, game_id, user_id)
+                values.append((description, publish_date, score, title, game_id, user_id))
         db_manager.executemany_query(query, values)  # Ejecutar la consulta con los valores generados
     except:
         print("xd")
