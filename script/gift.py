@@ -16,7 +16,6 @@ def insert_into_gift(db_manager):
         query_purchase = f"SELECT user_id, game_id FROM user_buy_game WHERE user_buy_game={id_purchase} LIMIT 1"
         purchase_data = db_manager.get_data(query_purchase)
         if purchase_data:
-            print(purchase_data)
             user_id=purchase_data[0][0]
             game_gift_id= purchase_data[0][1]
             values.append((shipping_date,user_id,game_gift_id,community_gift_id))   
