@@ -59,7 +59,7 @@ class DatabaseManager:
         except (Exception, psycopg2.Error) as error:
             print("Failed to execute query:", error)
     
-    def get_table(self,query):
+    def get_data(self,query):
         try:
             self.cursor.execute(query)
             self.connection.commit()
@@ -67,7 +67,7 @@ class DatabaseManager:
             return value
         except (Exception, psycopg2.Error) as error:
             print("Failed to execute query:", error)
-    
+            return None    
     def check_user_has_game(self, user_id, game_id):
         query = "SELECT COUNT(*) FROM user_buy_game WHERE user_id = %s AND game_id = %s"
         self.cursor.execute(query, (user_id, game_id))

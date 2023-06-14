@@ -3,7 +3,7 @@ from user import insert_into_user,insert_into_developer
 from game import insert_into_game,insert_into_user_buy_game
 from event import insert_into_event
 from game_event import insert_into_game_event
-from review import insert_into_review_game
+from review_game import insert_into_game_review
 from community import insert_into_community
 from community_user import insert_into_community_user
 from gift import insert_into_gift
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     #insert_into_game(db_manager)
     #insert_into_game_event(db_manager)
     #insert_into_user_buy_game(db_manager)
-    insert_into_review_game(db_manager)
+    insert_into_game_review(db_manager)
     #insert_into_community(db_manager)
     #insert_into_community_user(db_manager)
     #insert_into_gift(db_manager)
