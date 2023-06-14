@@ -5,7 +5,7 @@ fecha_compra date,
 nombre_del_evento varchar,
 regalo boolean,
 destinatario_regalo varchar,
-review int) language plpgsql 
+review varchar) language plpgsql 
 as $$
 DECLARE 
     nombre_usuario varchar;
@@ -19,7 +19,7 @@ BEGIN
             ubg.purchase_date,
             CASE WHEN ubg.purchase_date BETWEEN e.start_date AND e.end_date THEN e.name ELSE NULL END AS name_event,
             gi.community_gift_id,
-            rg.game_review_id
+            rg.description
         FROM
             user_buy_game ubg
             JOIN game g ON ubg.game_id = g.game_id
@@ -36,7 +36,7 @@ BEGIN
         nombre_del_evento := var_r.name_event;
         regalo := var_r.community_gift_id IS NOT NULL;
         destinatario_regalo := CASE WHEN var_r.community_gift_id IS NOT NULL THEN var_r.name END;
-        review := var_r.game_review_id;
+        review := var_r.description;
         RETURN NEXT;
     END LOOP;
 END;
