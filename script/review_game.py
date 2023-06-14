@@ -17,7 +17,7 @@ def insert_into_game_review(db_manager):
             game_id= purchase_data[0][1]
             query = "INSERT INTO game_review (description, publish_date, score, title, game_id, user_id) VALUES (%s, %s, %s, %s, %s, %s)"
             values.append((description, publish_date, score, title, game_id, user_id))
-        db_manager.executemany_query(query, values)  # Ejecutar la consulta con los valores generados
+    db_manager.executemany_query(query, values)  # Ejecutar la consulta con los valores generados
 
 
 def generate_random_description():
