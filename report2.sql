@@ -15,3 +15,4 @@ create or replace function getActiveUserFromCommunity(idCommunity bigint, review
 	return next;
 	end loop;
 end;
+$$
