@@ -1,0 +1,96 @@
+insert into event (event_id,name,description,star_date,end_date) values 
+(DEFAULT,'Rebajas de Primavera','Incluyen descuentos en todo tipo de contenidos.','16/03/2023','23/03/2023'),
+(DEFAULT,'Rebajas de Verano','El segundo gran período de rebajas de 2023.','29/06/2023','13/07/2023'),
+(DEFAULT,'Rebajas de Otoño',' Las principales rebajas del año, que coinciden con el Black Friday.','21/11/2023','28/11/2023'),
+(DEFAULT,'Rebajas de Invierno',' Las habituales rebajas de Navidad.','21/12/2023','4/01/2024'),
+(DEFAULT,'Festival de la Construcción de Bases','El primer festival del año está dedicado a los juegos de construcción y gestión.','23/01/2023','30/01/2023'),
+(DEFAULT,'Festival del Misterio','En este evento los protagonistas serán los juegos centrados en el misterio y la investigación.','20/02/2023','27/02/2023')
+
+insert into game (game_id,description,name,release_date,base_price,developer_id) values
+(DEFAULT,'First Person Shooter que no inova desde 2013','Call of Duty','21/04/2020',70,null),
+(DEFAULT,'Mismo Juego personaje principal diferente','FIFA 2042','21/04/2022',80,null),
+(DEFAULT,'Si no eras racista ahora lo eres','League of Legends','12/04/2012',0,null),
+(DEFAULT,'Sussy Baka','Among Us','12/04/2021',0,null),
+(DEFAULT,'GTA pero medieval','Skryim','12/04/2010',0,null)
+
+insert into game_event (event_id,game_id,discount) values 
+(1,1,0.4),
+(1,2,0.7),
+(1,4,0.9),
+(4,2,0.8),
+(4,3,0.4),
+(6,4,0.3),
+(5,5,0.2),
+(2,1,0.8),
+(3,2,0.6),
+(2,2,0.5)
+
+insert into user_1 (user_id,banned,start_date,username,password,email) values
+(FALSE,'4/6/2023','WIZARDLIZARD','12345','wizardlizard@gmail.com'),
+(FALSE,'3/1/2023','gezersylar','12345','gezersylar@gmail.com')
+(false, '2023-05-28', 'jsmith', 'p@ssw0rd!', 'jsmith@example.com'),
+(false, '2023-06-01', 'mjohnson', 'secure123', 'mjohnson@example.com'),
+(false, '2023-05-30', 'alee', 'pass123', 'alee@example.com'),
+(false, '2023-06-02', 'kroberts', 'mysecret', 'kroberts@example.com'),
+(false, '2023-05-29', 'bwilliams', 'letmein321', 'bwilliams@example.com'),
+(false, '2023-06-03', 'jbrown', 'p@ssw0rd!', 'jbrown@example.com'),
+(false, '2023-06-04', 'cmiller', 'secure123', 'cmiller@example.com'),
+(false, '2023-06-01', 'dsmith', 'pass123', 'dsmith@example.com'),
+(false, '2023-06-02', 'emartinez', 'mysecret', 'emartinez@example.com'),
+(false, '2023-05-30', 'gjohnson', 'letmein321', 'gjohnson@example.com'),
+(false, '2023-05-31', 'klee', 'p@55w0rd!', 'klee@example.com'),
+(false, '2023-06-04', 'lwilliams', 'password123', 'lwilliams@example.com'),
+(false, '2023-05-29', 'nsmith', 'secret123', 'nsmith@example.com'),
+(false, '2023-05-28', 'operez', 'ilovecats', 'operez@example.com');
+
+insert into user_buy_game (user_buy_game,total_price,purchase_date,game_id,user_id) 
+values 
+(default,8,'25/02/2023',1,2),
+(default,8,'18/08/2023',3,2),
+(default,8,'20/03/2023',4,1),
+(default,8,'25/01/2023',5,2),
+(default,8,'18/08/2023',4,1),
+(default,8,'20/03/2023',1,2)
+
+INSERT INTO community (name, description)
+VALUES
+('Amantes de la música', 'Comunidad para los apasionados de la música de todos los géneros.'),
+('Cocineros en acción', 'Comunidad para compartir recetas, consejos y trucos de cocina.'),
+('Fanáticos del deporte', 'Comunidad dedicada a discutir y seguir los últimos eventos deportivos.'),
+('Amantes de la naturaleza', 'Comunidad para los amantes de la naturaleza, el senderismo y la ecología.')
+
+INSERT INTO comunnity_user (community_id, user_community_id)
+SELECT 
+  floor(random() * 4) + 1 AS community_id,
+  floor(random() * 15) + 1 AS user_id
+FROM generate_series(1, 10);
+
+INSERT INTO game_review (game_review_id, description, publish_date, score, title, game_id, user_id)
+SELECT
+  ROW_NUMBER() OVER () AS game_review_id,
+  'Esta es una descripción de la reseña del juego ' || (ROW_NUMBER() OVER ()) AS description,
+  CURRENT_DATE - INTERVAL '1 day' * (random() * 365) AS publish_date,
+  floor(random() * 10) + 1 AS score,
+  'Título de la reseña ' || (ROW_NUMBER() OVER ()) AS title,
+  floor(random() * 5) + 1 AS game_id,
+  floor(random() * 16) + 1 AS user_id
+FROM generate_series(1, 10);
+
+INSERT INTO gift (shipping_date, user_id, game_gift_id, community_gift_id)
+VALUES
+  ('2023-06-01', 3, 4, 1),
+  ('2023-05-29', 8, 2, 2),
+  ('2023-06-04', 12, 3, 1),
+  ('2023-05-31', 5, 1, 2),
+  ('2023-06-02', 10, 5, 1),
+  ('2023-06-03', 14, 4, 2),
+  ('2023-05-30', 2, 2, 1),
+  ('2023-06-05', 7, 1, 2),
+  ('2023-06-01', 11, 3, 1),
+  ('2023-06-04', 15, 5, 2),
+  ('2023-06-02', 4, 4, 1),
+  ('2023-05-31', 9, 2, 2),
+  ('2023-06-03', 13, 1, 1),
+  ('2023-05-29', 6, 5, 1),
+	('2023-06-01', 2, 5, 1),
+  ('2023-06-02', 16, 3, 2);
