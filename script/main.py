@@ -14,7 +14,7 @@ if __name__ == "__main__":
     db_manager.connect()
     #insert_into_user(db_manager)
     #insert_into_developer(db_manager)
-    insert_into_event(db_manager)
+    #insert_into_event(db_manager)
     #insert_into_game(db_manager)
     #insert_into_game_event(db_manager)
     #insert_into_user_buy_game(db_manager)
