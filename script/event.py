@@ -1,7 +1,7 @@
 from faker import Faker
 import random
 from datetime import datetime, timedelta,date
-n=100000
+n=100
 fake = Faker()
 name_event=('Festival de la Construccion de Bases',
             'Next Fest de febrero','Festival del Misterio',
