@@ -5,8 +5,6 @@ def insert_into_balance(db_manager):
     start_date=date(2023, 1, 1)
     query_last_user_id="select user_id from user_1 ORDER BY user_id DESC LIMIT 1"
     last_id_user=db_manager.get_last_id_from_table(query_last_user_id)
-    query_last_item_id="select item_id from item ORDER BY item_id DESC LIMIT 1"
-    last_id_item=db_manager.get_last_id_from_table(query_last_item_id)
     query="INSERT INTO balance (amount, description, transaction_date, payment_type, user_balance_id) VALUES (%s,%s,%s,%s,%s)"
     for _ in range(1000):
         for _ in range(185):
