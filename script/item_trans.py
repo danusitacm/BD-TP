@@ -1,7 +1,6 @@
 from librerias import *
-n=200000
-fake = Faker()
 def insert_into_user_buy_game(db_manager):
+    n=200000
     values=[]
     start_date=date(2023, 1, 1)
     query_last_user_id="select user_id from user_1 ORDER BY user_id DESC LIMIT 1"
