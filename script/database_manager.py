@@ -1,5 +1,4 @@
 import psycopg2
-
 class DatabaseManager:
     def __init__(self, user, password, host, port, database):
         self.user = user

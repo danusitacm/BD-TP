@@ -1,6 +1,4 @@
-from faker import Faker
-import random
-import time
+from librerias import *
 random.seed(int(time.time()) ) 
 def insert_into_game_event(db_manager):
     n=400000

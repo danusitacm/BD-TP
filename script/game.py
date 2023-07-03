@@ -1,6 +1,4 @@
-from faker import Faker
-import random
-from datetime import datetime, timedelta,date
+from librerias import *
 n=5000000
 fake = Faker()
 def insert_into_game(db_manager):

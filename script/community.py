@@ -1,4 +1,4 @@
-from faker import Faker
+from librerias import *
 n=100000
 fake = Faker()
 def insert_into_community(db_manager):

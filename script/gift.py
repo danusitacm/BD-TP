@@ -1,6 +1,4 @@
-from faker import Faker
-import random
-fake = Faker()
+from librerias import *
 def insert_into_gift(db_manager):
     n=185000
     values=[]

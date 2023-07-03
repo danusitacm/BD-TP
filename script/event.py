@@ -1,6 +1,4 @@
-from faker import Faker
-import random
-from datetime import datetime, timedelta,date
+from librerias import *
 n=100
 fake = Faker()
 name_event=('Festival de la Construccion de Bases',

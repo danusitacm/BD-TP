@@ -1,5 +1,4 @@
-from faker import Faker
-import random
+from librerias import *
 fake = Faker()
 def insert_into_genre(db_manager):
     query="INSERT INTO genre (description_genre,genre) VALUES (%s,%s)"
