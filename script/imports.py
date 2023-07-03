@@ -10,3 +10,4 @@ from gift import insert_into_gift
 from items import insert_into_items, insert_into_products
 from rarity import insert_into_rarity
 from balance import insert_into_balance
+from item_trans import insert_into_item_transaction
