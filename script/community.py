@@ -1,5 +1,5 @@
 from faker import Faker
-n=300000
+n=100000
 fake = Faker()
 def insert_into_community(db_manager):
     values=[]

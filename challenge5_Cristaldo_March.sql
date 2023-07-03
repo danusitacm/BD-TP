@@ -1,4 +1,3 @@
-
 CREATE SEQUENCE public.genre_genre_id_seq START WITH 1;
 SELECT setval('public.genre_genre_id_seq', 1, false);
 CREATE TABLE public.genre (

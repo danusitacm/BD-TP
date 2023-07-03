@@ -2,7 +2,7 @@ from faker import Faker
 import random
 fake = Faker()
 def insert_into_gift(db_manager):
-    n=10
+    n=185000
     values=[]
     query="INSERT INTO gift (shipping_date,user_id,game_gift_id,community_gift_id) VALUES (%s,%s,%s,%s)"
     query_last_id_purchase="SELECT user_buy_game FROM user_buy_game ORDER BY user_buy_game DESC LIMIT 1"

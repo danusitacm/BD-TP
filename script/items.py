@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-n=30
+n=400000
 fake = Faker()
 def insert_into_products(db_manager):
     values=[]

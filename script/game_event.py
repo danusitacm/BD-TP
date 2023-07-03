@@ -3,7 +3,7 @@ import random
 import time
 random.seed(int(time.time()) ) 
 def insert_into_game_event(db_manager):
-    n=2000000
+    n=400000
     values=[]
     query_last_game_id="select game_id from game ORDER BY game_id DESC LIMIT 1"
     last_id_game=db_manager.get_last_id_from_table(query_last_game_id)

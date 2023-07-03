@@ -1,14 +1,15 @@
 from faker import Faker
 import random
 from datetime import datetime, timedelta,date
-n=500000
+n=5000000
 fake = Faker()
 def insert_into_game(db_manager):
     values=[]
+    number_games=600000
     query="select developer_id from developer ORDER BY developer_id DESC LIMIT 1"
     end_range=db_manager.get_last_id_from_table(query)
     query="INSERT INTO game (description,name,release_date,base_price,developer_id) VALUES (%s,%s,%s,%s,%s)"
-    for _ in range(n):
+    for _ in range(number_games):
         description=fake.text(max_nb_chars=300)
         name=fake.word()
         release_date=fake.date_this_year()
@@ -25,7 +26,7 @@ def insert_into_user_buy_game(db_manager):
     query_last_game_id="select game_id from game ORDER BY game_id DESC LIMIT 1"
     last_id_game=db_manager.get_last_id_from_table(query_last_game_id)
     query="INSERT INTO user_buy_game (total_price,purchase_date,game_id,user_id) VALUES (%s,%s,%s,%s)"
-    for _ in range(5000):
+    for _ in range(50000):
         for _ in range(100):
             total_price=random.randint(70000, 1000000) 
             purchase_date=start_date 
