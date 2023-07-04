@@ -1,12 +1,13 @@
 from librerias import *
 def insert_into_game_review(db_manager):
-    n = 100000
+    n = 500000
     values=[]
     query = "INSERT INTO game_review (description, publish_date, score, title, game_id, user_id) VALUES (%s, %s, %s, %s, %s, %s)"
     query_purchase = "SELECT user_id, game_id FROM user_buy_game ORDER BY RANDOM() LIMIT 1"
     query_last_id_purchase="SELECT user_buy_game FROM user_buy_game ORDER BY user_buy_game DESC LIMIT 1"
     last_id_purchase=db_manager.get_last_id_from_table(query_last_id_purchase)
-    for i in range(n):
+    
+    for _ in range(n):
         score = random.randint(1, 10)
         description = generate_random_description(score)
         title = generate_random_title(score)
