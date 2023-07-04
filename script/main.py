@@ -11,7 +11,7 @@ if __name__ == "__main__":
     #insert_into_game_review(db_manager)
     #insert_into_community(db_manager)
     #insert_into_community_user(db_manager)
-    #insert_into_gift(db_manager)
+    insert_into_gift(db_manager)
     #insert_into_rarity(db_manager)
     #insert_into_products(db_manager)
     #insert_into_items(db_manager)
