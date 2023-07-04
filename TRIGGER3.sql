@@ -20,4 +20,4 @@ LANGUAGE plpgsql;
 CREATE TRIGGER user_no_review_si_no_compro 
 	BEFORE INSERT OR UPDATE ON user_review
 	FOR EACH ROW 
-	EXECUTE PROCEDURE uuser_no_review_si_no_compro();
+	EXECUTE PROCEDURE user_no_review_si_no_compro();
