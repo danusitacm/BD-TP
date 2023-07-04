@@ -11,7 +11,6 @@ def insert_into_gift(db_manager):
     query_insert_community_user="INSERT INTO comunnity_user(community_id, user_community_id) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     
     for _ in range(num_records):
-        shipping_date=fake.date_this_year()
         community_gift_id=random.randint(1,last_community_id)
         id_purchase=random.randint(1,last_purchase_id)
         query_purchase = f"SELECT user_id, game_id, purchase_date FROM user_buy_game WHERE user_buy_game={id_purchase} LIMIT 1"
