@@ -1,6 +1,6 @@
 from librerias import *
 def insert_into_game_review(db_manager):
-    n = 100
+    n = 100000
     values=[]
     query = "INSERT INTO game_review (description, publish_date, score, title, game_id, user_id) VALUES (%s, %s, %s, %s, %s, %s)"
     query_purchase = "SELECT user_id, game_id FROM user_buy_game ORDER BY RANDOM() LIMIT 1"

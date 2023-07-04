@@ -32,7 +32,6 @@ def generate_random_title(score):
         return random.choice(titulos_positivos)
 
 def insert_into_item_transaction(db_manager):
-    num_records=200000
     values_item_trans=[]
     values_user_review=[]
     start_date=date(2023, 1, 1)
@@ -43,8 +42,8 @@ def insert_into_item_transaction(db_manager):
     query_insert_item_transacction="INSERT INTO item_transacction (user_seller_id,purchase_date, price, user_buyer_id, item_sell_id) VALUES (%s,%s,%s,%s,%s)"
     query_insert_user_review="INSERT INTO public.user_review(publish_date, title, description, score, user_seller_id, user_reviewer_id) VALUES (%s,%s,%s,%s,%s,%s)"
     
-    for _ in range(10):
-        for _ in range(10):
+    for _ in range(4000):
+        for _ in range(100):
             price=random.randint(70000, 1000000) 
             purchase_date=start_date 
             item_sell_id=random.randint(1,last_item_id)
