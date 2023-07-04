@@ -1,6 +1,6 @@
 from librerias import *
 def insert_into_community(db_manager):
-    num_records = 100000
+    num_records = 100
     values = []
     query_insert_community = "INSERT INTO community (name, description) VALUES (%s, %s)"
     
