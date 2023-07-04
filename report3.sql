@@ -15,11 +15,11 @@ BEGIN
     RAISE NOTICE 'Nombre de usuario: %', nombre_usuario;
     FOR var_r IN (
         SELECT DISTINCT
-            g.name,
+            g.name as nombre_regalo,
             ubg.purchase_date,
             CASE WHEN ubg.purchase_date BETWEEN e.start_date AND e.end_date THEN e.name ELSE NULL END AS name_event,
             gi.community_gift_id,
-            co.name
+            co.name as nombre_comunidad,
             rg.description
         FROM
             user_buy_game ubg
@@ -32,11 +32,11 @@ BEGIN
         WHERE
             ubg.user_id = userId
     ) LOOP
-        juego_comprados := var_r.g.name;
+        juego_comprados := var_r.nombre_regalo;
         fecha_compra := var_r.purchase_date;
         nombre_del_evento := var_r.name_event;
         regalo := var_r.community_gift_id IS NOT NULL;
-        destinatario_regalo := CASE WHEN var_r.community_gift_id IS NOT NULL THEN var_r.co.name END;
+        destinatario_regalo := CASE WHEN var_r.community_gift_id IS NOT NULL THEN var_r.nombre_comunidad END;
         review := var_r.description;
         RETURN NEXT;
     END LOOP;
