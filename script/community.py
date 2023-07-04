@@ -4,8 +4,8 @@ def insert_into_community(db_manager):
     values = []
     query_insert_community = "INSERT INTO community (name, description) VALUES (%s, %s)"
     
-    for _ in range(num_records):
-        name = fake.word()
+    for i in range(num_records):
+        name = f"community {i}"
         description = fake.text(max_nb_chars=300)
         values.append((name,description))
     
